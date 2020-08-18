@@ -7,6 +7,19 @@
         {
             "type":"Microsoft.Resources/deployments",
             "apiVersion":"2017-05-10",
+            "name":"nsg",
+            "properties":{
+                "mode":"Incremental",
+                "templateLink":{
+                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/01-nsg.json",
+                    "contentVersion":"1.0.0.0"
+                } 
+            }
+
+        },    
+        {
+            "type":"Microsoft.Resources/deployments",
+            "apiVersion":"2017-05-10",
             "name":"vnet",
             "properties":{
                 "mode":"Incremental",
@@ -14,9 +27,10 @@
                     "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/02-vnet.json",
                     "contentVersion":"1.0.0.0"
                 } 
-            }
+            },
+            "dependsOn":["nsg"]
 
-        },       
+        },   
         {
             "type":"Microsoft.Resources/deployments",
             "apiVersion":"2017-05-10",
