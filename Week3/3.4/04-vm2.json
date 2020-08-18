@@ -1,0 +1,184 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vm2Name": {
+            "type": "string",
+            "defaultValue": "vm-007-szkolachmury-dev-002",
+            "metadata": {
+                "description": "The name of you Virtual Machine."
+            }
+        },
+        "adminUsername": {
+            "type": "string",
+            "defaultValue": "admpxp",
+            "metadata": {
+                "description": "Username for the Virtual Machine."
+            }
+        },
+        "authenticationType": {
+            "type": "string",
+            "defaultValue": "password",
+            "allowedValues": [
+                "sshPublicKey",
+                "password"
+            ],
+            "metadata": {
+                "description": "Type of authentication to use on the Virtual Machine. SSH key is recommended."
+            }
+        },
+        "adminPasswordOrKey": {
+            "type": "securestring",
+            "defaultValue": "P@ssw0rdP@ssw0rd",
+            "metadata": {
+                "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+            }
+        },
+        "ubuntuOSVersion": {
+            "type": "string",
+            "defaultValue": "18.04-LTS",
+            "allowedValues": [
+                "12.04.5-LTS",
+                "14.04.5-LTS",
+                "16.04.0-LTS",
+                "18.04-LTS"
+            ],
+            "metadata": {
+                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+        "VmSize": {
+            "type": "string",
+            "defaultValue": "Standard_B2s",
+            "metadata": {
+                "description": "The size of the VM"
+            }
+        },
+        "virtualNetworkName": {
+            "type": "string",
+            "defaultValue": "vnet-007-szkolachmury-dev-001",
+            "metadata": {
+                "description": "Name of the VNET"
+            }
+        },
+        "subnet2Name": {
+            "type": "string",
+            "defaultValue": "snet-007-szkolachmury-dev-002",
+            "metadata": {
+                "description": "Name of the subnet in the virtual network"
+            }
+        },
+        "nic2Name": {
+            "type": "string",
+            "defaultValue": "nic-007-szkolachmury-dev-002",
+            "metadata": {
+                "description": "Name of the nic in the virtual network"
+            }
+        },
+      "disk2Name": {
+            "type": "string",
+            "defaultValue": "disk-007-szkolachmury-dev-002",
+            "metadata": {
+                "description": "Name of the nic in the virtual network"
+            }
+        },     
+        "NSG2Name": {
+            "type": "string",
+            "defaultValue": "nsg-007-szkolachmury-dev-002",
+            "metadata": {
+                "description": "Name of the Network Security Group"
+            }
+        }
+        
+    },
+    "variables": {
+        "osDiskType": "Standard_LRS",
+        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet2Name'))]",
+        "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+                "publicKeys": [
+                    {
+                        "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
+                        "keyData": "[parameters('adminPasswordOrKey')]"
+                    }
+                ]
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('nic2Name')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "subnet": {
+                               
+                                 "id": "[variables('subnetRef')]"
+                            },
+                            "privateIPAllocationMethod": "Dynamic"
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups',parameters('NSG2Name'))]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2019-03-01",
+            "name": "[parameters('vm2Name')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces/', parameters('nic2Name'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[parameters('VmSize')]"
+                },
+                "storageProfile": {
+                    "osDisk": {
+                        "name": "[parameters('disk2Name')]",
+                        "createOption": "fromImage",
+                        "managedDisk": {
+                            "storageAccountType": "[variables('osDiskType')]"
+                        }
+                    },
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "[parameters('ubuntuOSVersion')]",
+                        "version": "latest"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nic2Name'))]"
+                             
+                        }
+                    ]
+                },
+                "osProfile": {
+                    "computerName": "[parameters('vm2Name')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPasswordOrKey')]",
+                    "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
+                }
+            }
+        }
+    ]
+}
