@@ -11,7 +11,7 @@
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
-                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/01-nsg.json",
+                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/Week3/3.2/01-nsg.json",
                     "contentVersion":"1.0.0.0"
                 } 
             }
@@ -24,7 +24,7 @@
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
-                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/02-vnet.json",
+                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/Week3/3.2/02-vnet.json",
                     "contentVersion":"1.0.0.0"
                 } 
             },
@@ -38,7 +38,7 @@
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
-                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/03-vm1.json",
+                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/Week3/3.2/03-vm1.json",
                     "contentVersion":"1.0.0.0"
                 } 
             },
@@ -52,7 +52,7 @@
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
-                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/04-vm2.json",
+                    "uri":"https://raw.githubusercontent.com/ostalski1992/AzureArchitect/master/Week3/3.2/04-vm2.json",
                     "contentVersion":"1.0.0.0"
                 } 
             },
