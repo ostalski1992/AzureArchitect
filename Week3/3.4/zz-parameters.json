@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters":{
+       "adminUsername":{
+           "reference": {
+             "keyVault":{
+                "id":"/subscriptions/60dd9fa3-8b3f-46cc-bcdb-438efcbf1939/resourceGroups/rg-007-szkolachmury-dev-001/providers/Microsoft.KeyVault/vaults/szkolachmury"
+                },
+                "secretName":"AdminLogin"
+            }
+        },
+         "adminPasswordOrKey":{
+           "reference": {
+             "keyVault":{
+                "id":"/subscriptions/60dd9fa3-8b3f-46cc-bcdb-438efcbf1939/resourceGroups/rg-007-szkolachmury-dev-001/providers/Microsoft.KeyVault/vaults/szkolachmury"
+                },
+                "secretName":"AdminLogin"
+            }
+        }
+
+}
+}
+
