@@ -2,15 +2,16 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vmName": {
+        "vm2Name": {
             "type": "string",
-            "defaultValue": "simpleLinuxVM",
+            "defaultValue": "vm-007-szkolachmury-dev-002",
             "metadata": {
                 "description": "The name of you Virtual Machine."
             }
         },
         "adminUsername": {
             "type": "string",
+            "defaultValue": "admpxp",
             "metadata": {
                 "description": "Username for the Virtual Machine."
             }
@@ -28,6 +29,7 @@
         },
         "adminPasswordOrKey": {
             "type": "securestring",
+            "defaultValue": "p@ssw0rd",
             "metadata": {
                 "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
             }
@@ -61,29 +63,35 @@
         },
         "virtualNetworkName": {
             "type": "string",
-            "defaultValue": "vNet",
+            "defaultValue": "vnet-007-szkolachmury-dev-001",
             "metadata": {
                 "description": "Name of the VNET"
             }
         },
-        "subnetName": {
+        "subnet2Name": {
             "type": "string",
-            "defaultValue": "Subnet",
+            "defaultValue": "snet-007-szkolachmury-dev-002",
             "metadata": {
                 "description": "Name of the subnet in the virtual network"
             }
         },
-        "nicName": {
+        "nic2Name": {
             "type": "string",
-            "defaultValue": "Subnet",
+            "defaultValue": "nic-007-szkolachmury-dev-002",
             "metadata": {
                 "description": "Name of the nic in the virtual network"
             }
         },
-        
-        "NSG1Name": {
+      "disk2Name": {
             "type": "string",
-            "defaultValue": "SecGroupNet",
+            "defaultValue": "disk-007-szkolachmury-dev-002",
+            "metadata": {
+                "description": "Name of the nic in the virtual network"
+            }
+        },     
+        "NSG2Name": {
+            "type": "string",
+            "defaultValue": "nsg-007-szkolachmury-dev-002",
             "metadata": {
                 "description": "Name of the Network Security Group"
             }
@@ -92,7 +100,7 @@
     },
     "variables": {
         "osDiskType": "Standard_LRS",
-        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
+        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet2Name'))]",
         "linuxConfiguration": {
             "disablePasswordAuthentication": true,
             "ssh": {
@@ -109,7 +117,7 @@
         {
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-10-01",
-            "name": "[parameters('nicName')]",
+            "name": "[parameters('nic2Name')]",
             "location": "[parameters('location')]",
             "properties": {
                 "ipConfigurations": [
@@ -125,17 +133,17 @@
                     }
                 ],
                 "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups',parameters('NSG1Name'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups',parameters('NSG2Name'))]"
                 }
             }
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2019-03-01",
-            "name": "[parameters('vmName')]",
+            "name": "[parameters('vm2Name')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces/', parameters('nic2Name'))]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -143,7 +151,7 @@
                 },
                 "storageProfile": {
                     "osDisk": {
-                        "name": "[parameters('diskName')]",
+                        "name": "[parameters('disk2Name')]",
                         "createOption": "fromImage",
                         "managedDisk": {
                             "storageAccountType": "[variables('osDiskType')]"
@@ -159,13 +167,13 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nic2Name'))]"
                              
                         }
                     ]
                 },
                 "osProfile": {
-                    "computerName": "[parameters('vmName')]",
+                    "computerName": "[parameters('vm2Name')]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPasswordOrKey')]",
                     "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
