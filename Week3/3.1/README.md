@@ -7,7 +7,8 @@ Jeśli to konieczne, należy zbudować własny model ról za pomocą RBAC
 Docelowo, wszystkie kluczowe ustawienia, tak jak np. nazwy lokalnych administratorów i hasła powinny być pobierane z Azure KeyVault.
 
 
-Zadanie 1 - Konwencja nazewnicza 
+## Zadanie 1 - Konwencja nazewnicza 
+<br >
 „Zbuduj prostą konwencję nazewniczą dla min. takich zasobów jak Grupa Zasobów, VNET, Maszyn Wirtualna, Dysk, Konta składowania danych. Pamiętaj o ograniczeniach w nazywaniu zasobów, które występują w Azure” 
   
 
