@@ -3,3 +3,10 @@ Opis sytuacji Jesteś architektem w firmie o europejskim zasięgu i rozpoczynasz
 ## Zadanie 4 – KeyVault 
 <br > 
 „Spróbuj na koniec zmodyfikować template tak, by nazwa użytkownika i hasło do każdej maszyny z pkt. 2 było pobierane z KeyVault.„ 
+
+
+<br >
+<br >
+Linki:
+<br >
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-tutorial-use-key-vault
