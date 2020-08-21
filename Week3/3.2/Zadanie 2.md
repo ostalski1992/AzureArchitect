@@ -6,6 +6,7 @@ Zadanie 2 – ARM Template
 jednej sieci VNET  podzielonej na dwa subnety.  W każdy subnecie powinna powstać najprostsza maszyna wirtualna z systemem Ubuntu 18.04 a na każdym subnecie powinny zostać skonfigurowane NSG.” 
  
 <br >
-Linki\
+Linki
+<br >
 https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.5.0 
 https://www.youtube.com/watch?v=Ge_Sp-1lWZ4 
