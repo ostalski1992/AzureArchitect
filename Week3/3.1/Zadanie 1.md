@@ -17,10 +17,9 @@ Konwencja nazewnicza:
 - `<environment> - Idendyfikator środowiska; np. prod, dev, test`
 - `<###> - numeracja zasobu`
  
- 
- \
- \
- \
+<br />
+<br />
+
  
 
 | Resource | Pattern |
@@ -35,9 +34,8 @@ Konwencja nazewnicza:
 | Storage  | `stg-<project code>-<service name>-<environment>-<###>` |
 
 
-\
-\
-\
+<br />
+<br />
 
  
  
