@@ -17,6 +17,8 @@ Konwencja nazewnicza:
 - `<environment> - Idendyfikator środowiska; np. prod, dev, test`
 - `<###> - numeracja zasobu`
  
+ 
+ 
 
 | Resource | Pattern |
 | --- | --- |
