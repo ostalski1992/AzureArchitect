@@ -20,28 +20,17 @@ Konwencja nazewnicza:
 
 | Resource | Pattern |
 | --- | --- |
-| Resource group | `rg-<project code>-<service name>-<environment>` |
-| git diff | Show file differences that haven't been staged |
+| Resource group | `rg-<project code>-<service name>-<environment>-<###>` |
+| Virtual Machine | `vm-<project code>-<service name>-<environment>-<###>` |
+| Virtual Network  | `vnet-<project code>-<service name>-<environment>-<###>` |
+| Subnet  | `snet-<project code>-<service name>-<environment>-<###>` |
+| Network Interface  | `nic-<project code>-<service name>-<environment>-<###>` |
+| Network Security Group  | `nsg-<project code>-<service name>-<environment>-<###>` |
+| Disk  | `disk-<project code>-<service name>-<environment>-<###>` |
+| Storage  | `stg-<project code>-<service name>-<environment>-<###>` |
 
 
 
-
-
-virtualMachines 
-vm-<project code>-<service name>-<environment>-<###> 
-virtualNetwork 
-vnet-<project code>-<service name>-<environment>-<###> 
-subnet 
-snet-<project code>-<service name>-<environment>-<###> 
-Network interface (NIC) 
-nic-<project code>-<service name>-<environment>-<###> 
-Network security group 
-nsg-<project code>-<service name>-<environment>-<###> 
-Disks 
-disk-<project code>-<service name>-<environment>-<###> 
-Storage 
-stg<project code><service name><environment><###> 
- 
  
  
  
