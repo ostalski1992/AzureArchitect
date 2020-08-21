@@ -12,10 +12,10 @@ Zadanie 1 - Konwencja nazewnicza
   
 
 Konwencja nazewnicza: 
-• <project code> - Unikalny kod projektu; np. 007 
-• <service name> - Nazwa serwisu/aplikacji 
-• <environment> - Idendyfikator środowiska; np. prod, dev, test 
-• <###> - numeracja zasobu 
+- <project code> - Unikalny kod projektu; np. 007 
+- <service name> - Nazwa serwisu/aplikacji 
+- <environment> - Idendyfikator środowiska; np. prod, dev, test 
+- <###> - numeracja zasobu 
  
 
 | Resource | Pattern |
