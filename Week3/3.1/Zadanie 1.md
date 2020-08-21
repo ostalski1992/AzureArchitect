@@ -17,9 +17,14 @@ Konwencja nazewnicza:
 • <environment> - Idendyfikator środowiska; np. prod, dev, test 
 • <###> - numeracja zasobu 
  
- 
-| Resouece | Pattern                                           |
------------ ----------------------------------------------------
+
+| Resource | Patern |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+
+
 Resource group 
 rg-<project code>-<service name>-<environment> 
 virtualMachines 
