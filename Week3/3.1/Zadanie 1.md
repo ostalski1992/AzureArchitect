@@ -18,14 +18,10 @@ Konwencja nazewnicza:
 • <###> - numeracja zasobu 
  
 
-| Resource        | Patern                                               |
-| --------------- | ---------------------------------------------------- |
-| Resource group  | rg-<project code>-<service name>-<environment>   |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Resource | Pattern |
+| --- | --- |
+| Resource group | rg-<project code>-<service name>-<environment> |
+| git diff | Show file differences that haven't been staged |
 
 
 
