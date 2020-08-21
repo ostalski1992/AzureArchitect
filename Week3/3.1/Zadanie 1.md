@@ -19,8 +19,8 @@ Konwencja nazewnicza:
  
 
 | Resource | Patern |
-| ------------- | ------------- |
-| Cesource group  | rg-<project code>-<service name>-<environment>   |
+| ------------- | ---------------------------------------------------- |
+| Resource group  | rg-<project code>-<service name>-<environment>   |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
