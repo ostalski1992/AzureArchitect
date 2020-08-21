@@ -20,7 +20,7 @@ Konwencja nazewnicza:
 
 | Resource | Pattern |
 | --- | --- |
-| Resource group | 'rg-<project code>-<service name>-<environment>' |
+| Resource group | `rg-<project code>-<service name>-<environment>` |
 | git diff | Show file differences that haven't been staged |
 
 
