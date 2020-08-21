@@ -1,7 +1,7 @@
 {
     "Name": "Virtual Machine Operator",
     "IsCustom": true,
-    "Description": "Can start, stop and restart virtual machines.",
+    "Description": "Can start, stop virtual machines and create support request.",
     "Actions": [
         "Microsoft.Compute/virtualMachines/read",
         "Microsoft.Compute/virtualMachines/start/action",
