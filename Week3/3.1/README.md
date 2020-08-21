@@ -14,7 +14,7 @@ Docelowo, wszystkie kluczowe ustawienia, tak jak np. nazwy lokalnych administrat
 
 Konwencja nazewnicza: 
 - `<project code> - Unikalny kod projektu; np. 007`
-- `<service name> - Nazwa serwisu/aplikacji; np szkolachmuryt`
+- `<service name> - Nazwa serwisu/aplikacji; np szkolachmury`
 - `<environment> - Idendyfikator środowiska; np. prod, dev, test`
 - `<###> - numeracja zasobu`
  
