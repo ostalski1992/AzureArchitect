@@ -18,7 +18,10 @@ Konwencja nazewnicza:
 - `<###> - numeracja zasobu`
  
  
- 
+ \
+ \
+ \
+ \
 
 | Resource | Pattern |
 | --- | --- |
@@ -32,7 +35,10 @@ Konwencja nazewnicza:
 | Storage  | `stg-<project code>-<service name>-<environment>-<###>` |
 
 
-
+\
+\
+\
+\
  
  
  
