@@ -20,13 +20,17 @@ Konwencja nazewnicza:
 
 | Resource | Patern |
 | ------------- | ------------- |
+| Cesource group  | rg-<project code>-<service name>-<environment>   |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 
 
 
-Resource group 
-rg-<project code>-<service name>-<environment> 
+
+
 virtualMachines 
 vm-<project code>-<service name>-<environment>-<###> 
 virtualNetwork 
