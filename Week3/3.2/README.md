@@ -7,6 +7,7 @@ jednej sieci VNET  podzielonej na dwa subnety.  W każdy subnecie powinna powsta
  
 <br >
 Linki
+
 <br >
 https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.5.0 
 https://www.youtube.com/watch?v=Ge_Sp-1lWZ4 
