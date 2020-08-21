@@ -18,8 +18,8 @@ Konwencja nazewnicza:
 • <###> - numeracja zasobu 
  
 
-| Resource | Patern |
-| ------------- | ---------------------------------------------------- |
+| Resource        | Patern                                               |
+| --------------- | ---------------------------------------------------- |
 | Resource group  | rg-<project code>-<service name>-<environment>   |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
