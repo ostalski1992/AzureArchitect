@@ -21,7 +21,7 @@ Konwencja nazewnicza:
  \
  \
  \
- \
+ 
 
 | Resource | Pattern |
 | --- | --- |
@@ -38,7 +38,7 @@ Konwencja nazewnicza:
 \
 \
 \
-\
+
  
  
  
