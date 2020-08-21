@@ -6,52 +6,20 @@ Infrastruktura, budowana w Azure pod środowiska czy aplikacje powinna być zaws
 Jeśli to konieczne, należy zbudować własny model ról za pomocą RBAC 
 Docelowo, wszystkie kluczowe ustawienia, tak jak np. nazwy lokalnych administratorów i hasła powinny być pobierane z Azure KeyVault.
 
+
 Zadanie 1 - Konwencja nazewnicza 
- „Zbuduj prostą konwencję nazewniczą dla min. takich zasobów jak Grupa Zasobów, VNET, Maszyn Wirtualna, Dysk, Konta składowania danych. Pamiętaj o ograniczeniach w nazywaniu zasobów, które występują w Azure” 
+„Zbuduj prostą konwencję nazewniczą dla min. takich zasobów jak Grupa Zasobów, VNET, Maszyn Wirtualna, Dysk, Konta składowania danych. Pamiętaj o ograniczeniach w nazywaniu zasobów, które występują w Azure” 
   
-Rozwiązanie: 
-Ograniczenia dla podanych zasobów: 
-Entity 
-Scope 
-Length 
-Valid Characters 
-resourcegroups 
-subscription 
-1-90 
-Alphanumerics, underscores, parentheses, hyphens, periods, and unicode characters that match the regex documentation. 
- 
-Can't end with period. 
-virtualNetworks 
-resource group 
-2-64 
-Alphanumerics, underscores, periods, and hyphens. 
- 
-Start with alphanumeric. End alphanumeric or underscore. 
-virtualMachines 
-resource group 
-1-15 (Windows) 
-1-64 (Linux) 
-Can't use: 
-\/"'[]:|<>+=;,?*@& 
- 
-Can't start with underscore. Can't end with period or hyphen. 
-disks 
-resource group 
-1-80 
-Alphanumerics and underscores. 
-storageAccounts 
-global 
-3-24 
-Lowercase letters and numbers. 
- 
- 
+
 Konwencja nazewnicza: 
 • <project code> - Unikalny kod projektu; np. 007 
 • <service name> - Nazwa serwisu/aplikacji 
 • <environment> - Idendyfikator środowiska; np. prod, dev, test 
 • <###> - numeracja zasobu 
-Resource 
-Pattern 
+ 
+ 
+| Resouece | Pattern                                           |
+----------- ----------------------------------------------------
 Resource group 
 rg-<project code>-<service name>-<environment> 
 virtualMachines 
